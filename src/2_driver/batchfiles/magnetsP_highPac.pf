@@ -1,0 +1,45 @@
+runs: 1
+numMagnetsP
+{
+	set_list: 0 1 2 3 10 20 30
+	{
+        runs: 1
+		RngSeed {
+			set_list: 11 12 13 14 15 16 17 18 19 20
+		}
+	}
+}
+fractionInitPacifists {
+    set: 0.7
+}
+numMagnetsN {
+   set: 100
+}
+simName {
+	set_string: DoPacificMagnetsMatter
+}
+population {
+   set: 21382
+}
+avgPressurability {
+    set: 0.33
+}
+runLength {
+   set: 1000
+}
+fractionExposedToMagnets {
+   set: 0.03
+}
+magneticEncounterRate {
+    set: 0.10
+}
+numVarAttributes {
+	set: 3
+}				
+numFixedAttributes {
+	set: 3
+}
+outputDirectory {
+    set_string: outdir/magnetsP_highPac
+}
+

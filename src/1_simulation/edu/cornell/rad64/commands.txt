@@ -1,0 +1,44 @@
+set CLASSPATH=C:\Program Files\Java\jdk1.6.0\jre\lib;C:\Program Files\Java\jdk1.6.0\lib;C:\Program Files\Java\jre1.6.0\lib;
+set CLASSPATH=C:\Program Files\Java\jdk1.6.0\jre\lib;C:\Program Files\Java\jdk1.6.0\lib;C:\Program Files\Java\jre1.6.0\lib;C:\Program Files\Repast 3\Repast J\;
+set CLASSPATH=C:\Program Files\Java\jdk1.6.0\jre\lib;C:\Program Files\Java\jdk1.6.0\lib;C:\Program Files\Java\jre1.6.0\lib;C:\Program Files\Repast 3\Repast J\;
+
+set CLASSPATH=C:\Program Files\Java\jdk1.6.0\jre\lib;C:\Program Files\Java\jdk1.6.0\lib;C:\Program Files\Java\jre1.6.0\lib;
+set CLASSPATH=%CLASSPATH%;C:\Program Files\Repast 3\Repast J\repast.jar;
+
+
+javac -classpath .;"C:\Program Files\Repast 3\Repast J\repast.jar" *.java
+javac -classpath .;"C:\Program Files\Repast 3\Repast J\repast.jar";"C:\Program Files\Java\jdk1.6.0\jre\lib;C:\Program Files\Java\jdk1.6.0\lib;C:\Program Files\Java\jre1.6.0\lib";  *.java
+javac *.java
+
+jar cfm x.jar manifest.txt *.class "C:\Program Files\Repast 3\Repast J\repast.jar"
+
+#run from the super-directory
+#for the model to be loadable by repast.jar/.exe, it is important that the model's jar contains the *.class files
+#under the full path, like edu/cornell/clericABM
+jar cfm x.jar edu\cornell\clericABM\Manifest.txt edu\cornell\clericABM
+
+java -jar x.jar
+
+
+
+#extreme sensitivity to directory structure.  This works!
+C:\Documents and Settings\user\My Documents\workspace\clericABM>
+java edu.cornell.clericABM.clericModel
+
+#instructions at
+http://www.cs.usfca.edu/~parrt/course/601/lectures/java.tools.html
+
+#command-line invocation
+#from http://cscs.umich.edu/old/lab/documentation/RePastStuff/repast3.0/repastj/docs/how_to/simstart.html
+java -cp c:/repast/demo/bugs/bugs.jar;c:/repast/lib/repast.jar
+uchicago.src.sim.engine.SimInit uchicago.src.sim.heatBugs.HeatBugsModel
+
+
+#instructions on making jars
+http://cscs.umich.edu/old/lab/documentation/RePastStuff/repast3.0/repastj/docs/how_to/faq.html#run_jar
+
+
+#last time used:
+javac -classpath .;"C:\Program Files\Repast 3\Repast J\repast.jar";"C:\Program Files\Java\jdk1.6.0\jre\lib;C:\Program Files\Java\jdk1.6.0\lib;C:\Program Files\Java\jre1.6.0\lib";  *.java
+cd ..\..\..\
+jar cfm x.jar edu\cornell\clericABM\Manifest.txt edu\cornell\clericABM\*.java edu\cornell\clericABM\*.class

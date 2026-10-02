@@ -1,0 +1,41 @@
+#this is obsolete
+
+runs: 1
+ethnicGroupOne
+{
+	set_list: 0.01 0.05 0.25 0.5 0.75 0.95 1.00 
+	{
+        runs: 1
+		RngSeed {
+			set_list: 11 12 13 14 15 16 17 18 19 20
+		}
+	}
+}
+numMagnetsN {
+   set: 100
+}
+population {
+   set: 21382
+}
+avgPressurability {
+    set: 0.33
+}
+runLength {
+   set: 1000
+}
+fractionExposedToMagnets {
+   set: 0.03
+}
+magneticEncounterRate {
+    set: 0.10
+}
+numFixedAttributes {
+	set: 3
+}				
+numVarAttributes {
+	set: 3
+}				
+outputDirectory {
+    set_string: outdir/ethnicGpOne
+}
+

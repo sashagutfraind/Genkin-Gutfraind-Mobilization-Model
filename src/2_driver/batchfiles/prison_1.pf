@@ -1,0 +1,51 @@
+runs: 1
+avgInitTieStrength
+{
+	set_list: -1.0 -0.5 -0.2 -0.1 -0.01 0.01 0.1 0.2 0.5 1.0 
+	{
+        runs: 1
+		RngSeed {
+			set_list: 11 12 13 14 15 16 17 18 19 20
+		}
+	}
+}
+fractionInitRadicals {
+   set: 0.10
+}
+fractionInitPacifists {
+   set: 0.01
+}
+numMagnetsN {
+   set: 5
+}
+simName {
+	set_string: prisonEffect 
+}
+population {
+   set: 1000
+}
+avgPressurability {
+    set: 0.33
+}
+runLength {
+   set: 1000
+}
+fractionExposedToMagnets {
+   set: 0.3
+}
+magneticEncounterRate {
+    set: 0.10
+}
+numFixedAttributes {
+	set: 3
+}				
+numVarAttributes {
+	set: 3
+}				
+attritionRate {
+    set: 0.002
+}
+outputDirectory {
+    set_string: outdir/prison_1
+}
+

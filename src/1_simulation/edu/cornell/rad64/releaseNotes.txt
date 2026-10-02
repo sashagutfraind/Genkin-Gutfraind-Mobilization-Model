@@ -1,0 +1,311 @@
+Release Notes 3.24.3  June 30 2010
+Changes
+-avg cell size, and avg individual's cell size
+
+Bug fixes
+-avg degree was made double
+
+Release Notes 3.24.2  May 6 2010
+Changes
+- corrected copyright notice
+
+Release Notes 3.24.1  Jan 18 2010
+Changes
+
+Bug fixes
+-link set dirty is now correctly handled
+
+Release Notes 3.24  Jan 18 2010
+Changes
+-testing of all metrics, and most of the functionality
+-agreement is redefined by removing its normalization (computational efficiency)
+-documentation of all parameters
+-more efficient & accurate code for tracking worstFriendAgreement
+	* agreement is stored in each link; nodes find the min over the links
+	* agreement at a link is updated lazily: only when asked
+
+Bug fixes
+-error in assortativity and E-I_index formulae
+-error in randomness of pressure
+
+
+Release Notes 3.23  Jan 11 2010
+Changes
+-more complete reporting of summary statistics
+-network display starts sorted
+-E-I index
+-more metrics on components: number of radical components, and number of isolated radical components
+-changes to names of most metrics (typically now "R-something" to reference radicals)
+-comprehensive documentation of all metrics
+
+Bug fixes
+-number of ticks is now exactly runLength variable (before there was an extra tick)
+-soffer's metric now estimates degree using the whole graph, not just the radical subgraph
+-fixed problems loading unit test file
+
+Release Notes 3.22  Jan 8 2010
+Changes
+-switched magnets to HashMap for performance
+-better handling of errors
+-unit test file
+
+Bug fixes
+-correct formula for computing clustering with Watts-Strogatz formula
+-error computation in computation of median of radical neighborhood size
+
+Release Notes 3.21.1  Jan 7 2010
+Changes
+-cleanup of obsolete features, some better documentation
+-reporting of fraction of rad-rad links
+-removed radicalExcessDyads
+
+Bug fixes
+-output files are now closed on exit
+
+Release Notes 3.21  Jan 7 2010
+Changes
+-added cell size metric to display
+-added reporting of traditional clustering measure 
+-added clustering data for all nodes (not just radicals)
+-moved label counter
+-cleanup of interface for pair data and triangle data
+-tester of isolation and clustering metrics
+
+Bug fixes
+-many fixes to the triangle data computation
+-incorrect reporting or initIsolation and finalIsolation
+-clustering was reported with a fixed factor of 3 error
+-median cell size was not the component size but rather number of radical neighbors of radicals
+
+Release Notes 3.20.1  Dec 28, 2009
+Bug fixes
+-changed algorithm for how magnets form links (no sociological difference)
+ apparently resolving heap explosion;  should also create speedup.
+-energy values did not CORRECTLY report linkAgeBonus effect
+
+Release Notes 3.19.1  Dec 7, 2009
+Changes
+-reporting of full network data
+
+Release Notes 3.18  Nov 15, 2009
+Changes
+-new output of raw network (of radicals only)
+-new parameter: networkRecordTic.  special value -1 indicates print at end of simulation.
+
+Release Notes 3.17  Oct 23, 2009
+Changes
+-internally nicer handling of statistics
+-api for testing
+-test scripts
+
+Bug fixes
+-energy values did not report linkAgeBonus effect
+-possible bug in forming new ties
+-missing comma in output (REM 3.17.1)
+
+Release Notes 3.16
+Changes
+-most parameters are now stored in static variables, leading to (hopefully) a much smaller memory footprint.
+-meanRadicalComponentSize is now computed
+-magnets' lists are now TreeSets rather than ArrayLists: faster removal and avoidance of duplication
+
+Bug fixes
+-crash in doing LHS
+-error in path of raw files
+-better handling of different modes
+
+Release Notes 3.15
+Changes
+-transitive ties are now a continuous trait: 0..1, with a default of 0.5
+-caching of friendship agreement
+-mutual friendship factor functionality disabled: 
+	considerable complications with caching of friendship agreement
+	unresolved issues with oscillations due to introductions
+-ethnicGpOne has been replaced by "diversity" which runs 0..1 and affects all
+ attributes except for zeal.
+-new parameters: fixedAttribSalience and zealSalience (range: 0..10, default=2. both)
+ multiply the importance of those node properties.
+-added histeresis to the model by giving ties a bonus that's related to their age.
+ bonus = maxLinkAgeBonus * (linkAge)/(linkBonusConstant + linkAge)
+
+Bug fixes
+-the failure of the attribVar batch to work (duplicated runs at numVarAttribs=1)
+is due to the batch running the =0, but the program automatically moving
+it to the threshold of 1.  This threshold was lowered to 0.  Similarly for fixed attributes.
+
+Release Notes 3.14
+Changes
+-mutual friends now affect tie formation, energy (TODO: update writeup)
+-new parameter "mutualFriendFactor" affects the weight of a mutual friend 
+	in the computation of agreement  (TODO: update writeup)
+-new median cell size metric
+-update to how aggreement is computed with nodes of zeal=0 (TODO: update writeup)
+-defaults changed: fixedAttributes->5, Magnetic Encounter Rate->.2
+-exposed all parameters: many new parameters now introduced
+-reverted to average degree
+-renamed "peerPressureRate" to "avgPressurability"
+-changed attrition rate to 2E-3/tick = 10%/year (at 50 ticks/year)
+
+
+Release Notes 3.13
+Changes:
+-Degree of node is now distributed as a power law with default exponent, nodeDegreeExponent=2.25, 
+ giving an average degree of 5.
+-New metrics
+-Rewamped random number system
+-Cleanup
+-Initial degree of the node is now stored permanently.  
+-New friends are allowed without loss of old ones as long as there is a void under the cap
+-Friendships are now distributed with a power law, with default exponent of 2.25 (avg=5)
+
+Bug fixes:
+-As per the paper, enforce the policy that no friends would be allowed to tie in if there already have maxDegree friends.
+
+Release Notes 3.12
+Changes:
+-Remove a call that prevented nodes from having < 1 fixed attributes.
+
+
+Release Notes 3.11
+Changes:
+-parameter values entered into the panel before reset is clicked are now saved.
+-parameter values have been changed to their values in the paper (except population size)
+-renamed metrics for consistency with paper
+
+Bug fixes
+-small bug involving the UI of radicalAttritionIncrement
+-fixed a bug that prevented execution from the command line
+-fixed a bug with cached random numbers
+-fixed the problem in displaying node labels.
+-fixed a bug corrupting the system.out stats
+
+Known Issues
+1. Opening a node panel, and then clicking X freezes up the program, rather than quitting.  
+	The bug does not show in debug mode!
+2. Having a variable parameter in a batch file accidentally set to a fixed value elsewhere 
+	in the batch file causes the program to go into an infinite loop, 
+	perpetually iterating the first seed and the fixed value.
+3. Memory consumption: currently, running a 50,000 agent simulation requires 2GB of memory,
+	primarily because random number are cached at each node.  This can be drastically reduced
+	by setting randomCacheSize to a smaller number (now it's 200).  The advantage of the
+	current architecture is that it allows the simulation at startup to be somewhat insensitive to
+	model parameter values.  In the future, we could make the nodes drain their cache after
+	the model started up.
+
+Release Notes 3.10
+Changes:
+-parameter numMagnets has been renamed numMagnetsN (N for neutral, for clarity)
+-parameter numFixedTraits has been renamed numFixedAttributes
+-parameter numTraits has been removed.  Instead, there is a parameter numVarAttributes
+
+-new sequences display the clustering of radicals, and the tie strengths in radicals.
+-it is now possible to click a node, and the "probe pabel" would change the values of the tie strengths each tick.
+	Previously, it would display out-of-date information
+
+-creation of new networks now uses caching of random seeds.  This ensures that changes to parameter values like
+	number of magnets has no effect on the states of the nodes and their connections.  Thus, the repeatability
+	of instances is increased.
+	
+-the network display (in circle layout) now shows all the radicals on one part of the screen, 
+	then all the moderates, and finally all the pacifists.
+
+Bug fixes:
+-outputDirectory is created if it is not existent
+-edge creation process is now fair: previously, nodes with low numbers tended to have a low number of edges.
+-fixed a bug preventing radicalAttritionIncrement from functioning properly.
+
+Release Notes 3.9
+Changes:
+-better statistical reporting:
+	* at each turn, the simulation writes vital radicalization indicators 
+	to a .csv file under the temporary files directory
+	* at the end of a run, the average values of vital statistics are reported, not just
+	the initial and final values.
+-it is now possible to disable influence between nodes by setting peerInfluenceRate << 0.0, eg. -1.0
+-3 new metrics of radicalization: 
+	avgRadicalTieStrength = how strong is the average tie between two radicals
+	radicalTriads = fraction of triads connecting three radicals, out of possible triads
+	radicalClustering = same metric, except that we look at the strength of the ties in each triad,
+					and calculate the average tie strength over the three ties 
+					(radicalTriads metric is equivalent to assuming it's = 1)
+
+-fractionInitPacifists is now 0.05, the same as the number of radicals, to remove bias.
+-peerPressureRate is now much lower at 0.2 (previously=0.7).
+
+
+Bug fixes:
+	* serious bug that was causing all ties to be +/-1.0
+	* small bug related to handling of UNIX-based systems.
+	* solved most compilation warnings
+	* there were two serious errors in how peer pressure was calculated b/c of me misinterpreting Macy's paper.
+	
+Release Notes 3.8
+Changes:
+-endogenized magnets: during creation, each node randomly selects whether to visit one of the magnets.
+  This preference is specific to each of the magnets.  This creates additional realism to the simulation,
+ * magnet is an individual preference, specific to the activity, rather than just an on/off switch
+ * magnet is now a trait in the Hopfield network sense, alongside other traits, and not an exogenous rewiring action.
+ 
+ The chance of selection of each of the magnets is dependent on the fractionExposedToMagnets parameter (needs a better name).
+ For example, if there is a radical node and there are 10 magnets, 5 radical magnets, and 4 pacifist magnets,
+ the node has probability fractionExposedToMagnets to enroll in magnet 1, likewise, the same independent probability of
+ enrolling in magnet 3 .. 10, and then similarly for the radical magnets.  If would not enroll in the pacifist magnets.
+ 
+ Node that becomes a radical/pacifist would look at the locales frequented by radicals,
+ and may enroll, or not, depending on the fraction encounter rate.  Node that ceases to be a radical would
+ cease to attend radical magnets.  
+ 
+ In the above, all that was said of radical equally applies to pacifists and moderates.
+
+Bug fixes:
+-suspected crash when attrition is high, but the network display is not open.
+
+Release Notes 3.7
+Changes:
+-by clicking on nodes, it's now possible to see useful information about them and their links
+-radical attrition rate increment can now go to negative values
+-changing model parameter will now immediately update the control panel, displaying any changes
+to parameters that are linked to the one being changed.  For example, setting fracInitRadicals to .90
+would show a decrease in fracInitPacifists to .10 (if it was > 0.1 before. This is necessary to ensure that 
+the sum of the two numbers cannot exceed 100%).
+
+Bug fixes:
+-at numZealLevels = 2, 4, moderates will now NOT be created.
+
+Release Notes 3.6
+Changes:
+-parameter fractionInitModerates has been removed, and replaced with the parameter fractionInitPacifists.
+This is because moderates do not actually exist if number of levels is even, but radicals always do.
+-When the number of levels is or set to be an even value (2,4,6 etc), automatically, we set:
+ fractionInitPacifists = 1 - fractionInitRadicals
+
+
+Release Notes 3.5
+
+Changes:
+-renamed "plot" and "plot2" parameters to more informative names: "showEnergyPlot", "ShowStatsPlot"
+-both clerics have been disabled.
+-agents can now join their friends, much like magnets do.  "In transitivity"
+	-each agent picks two of his friends every tick and tries to join them.
+	-this can be disabled by a new parameter, "transitiveFriendship"
+-safeMagnets: renamed "safeNewFriends".
+	-it now affects not only magnets but also transitivity of friendship
+
+-numDisciples: renamed "population"
+
+-attrition:
+	-new parameters: "attritionRate" (0..1), "radicalAttritionIncrement" (0..1, such that common+radicalInc <= 1)
+	-a fraction commonAttrition of the non-radical population is removed each term.
+	-a fraction common+radicalAttritionIncrement of radicals is removed.  
+	-new individuals who number exactly as many as the lost ones are brought in.
+	Their statistical characteristics are given by FractionInitModerates & FractionInitRadicasl - the same as the for the initial model population.
+	They form random new ties among themselves and the general population.
+
+-runLength: the time till termination will now be 100 be default.  Changing the number of
+	agents will not affect this.  Please set your run length to be sufficiently large
+	if you are running a large social network.
+	
+-bug fixes:
+	-a serious problem affecting numZealLevels!
+	-a serious problem affecting magnets!
+	

@@ -1,0 +1,5 @@
+Main-Class: edu.cornell.rad64.NewModel
+Class-Path: . jars/repast.jar jars/colt.jar jars/plot.jar jars/trove.jar jars/violinstrings-1.0.2.jar jars/beanbowl.jar 
+Manifest-Version: 1.0
+
+#unused: jars/commons-collections.jar jars/commons-logging.jar jars/jakarta-poi.jar jars/jep-2.24.jar jars/jgap.jar jars/jh.jar jars/jode-1.1.2-pre1.jar jars/joone.jar jars/junit.jar jars/log4j-1.2.8.jar jars/plot.jar jars/JTS.jar jars/OpenForecast-0.4.0.jar jars/ProActive.jar jars/asm.jar jars/beanbowl.jar 

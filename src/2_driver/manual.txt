@@ -1,0 +1,23 @@
+Latin Hypercube Sampling (LHS) driver manual
+
+architecture:
+	lhsdriver.py: user-facing problem-independent methods for running LHS
+	lhsTask.py:   problem-specific routines called by lhsdriver.py
+	batch file (typically lhs.ini):      
+			  configuration for both the driver section [LHSconfig] and the task's parameters.
+		        typically sits in the data directory
+
+Run
+* parsing of parameters is done by lhsdriver.py through lhsdriver.parseLHSbatch():
+* lhsdriver.prepareSamples() creates samples (could be overriden with lhsTask.prepareSamples()).	
+	(There is no support for constraints - space is assumed to be a hypercube.  
+       lhsTask.writeBatchFiles could be made to drop samples that violate constraints)
+* parameters are passed to lhsTask.writeBatchFiles() to be written as problem description files
+* batch file is copied into the data dir
+
+
+Analyze
+* all files in the dataDir will be analyzed
+* job and report file names must be uniquely identifiable by lhsTask.getJobAndDataFileNames()
+* lhsTask.reportLHS_BatchStats()  
+* lhsTask.displayLHS_BatchStats(dataDir, report)

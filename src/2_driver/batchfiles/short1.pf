@@ -1,0 +1,129 @@
+runs: 1
+NumMagnetsN
+{
+  set: 59.4
+}
+SwitchRandomness
+{
+  set: 0.0516296551609
+}
+NumZealLevels
+{
+  set: 5
+}
+DegreeSD
+{
+  set: 1.7377802321
+}
+NumMagnetsP
+{
+  set: 39.0
+}
+NumMagnetsR
+{
+  set: 7.5
+}
+SimName
+{
+  set_string: lhsSim
+}
+AvgInitTieStrength
+{
+  set: 0.115962961761
+}
+Diversity
+{
+  set: 0.0214698197862
+}
+NumVarAttributes
+{
+  set: 5.23676290716
+}
+AttritionRate
+{
+  set: 0.0814504783276
+}
+ZealSalience
+{
+  set: 0.750911596071
+}
+MaxLinkAgeBonus
+{
+  set: 1.78878148536
+}
+Population
+{
+  set: 156.3
+}
+RepellingTies
+{
+  set_boolean: false
+}
+SafeNewFriends
+{
+  set_boolean: true
+}
+AvgPressurability
+{
+  set: 0.258752181564
+}
+FixedAttribSalience
+{
+  set: 2.44716294813
+}
+TransitiveFriendship
+{
+  set: 0.498243103242
+}
+PressurabilitySD
+{
+  set: 0.157735305539
+}
+LinkAgeBonusFactor
+{
+  set: 88.472124436
+}
+StrengthUpdateRate
+{
+  set: 0.239610239612
+}
+SwitchPressFactor
+{
+  set: 3.28813038088
+}
+InitTieStrengthSD
+{
+  set: 0.599675650477
+}
+FractionInitPacifists
+{
+  set: 0.00417242845236
+}
+AvgDegree
+{
+  set: 11.2295214043
+}
+RadicalsAttritionIncrement
+{
+  set: 0.0467281989391
+}
+FractionExposedToMagnets
+{
+  set: 0.0361155688296
+}
+MagneticEncounterRate
+{
+  set: 0.0986708684184
+}
+NumFixedAttributes
+{
+  set: 1.9828328965
+}
+FractionInitRadicals
+{
+  set: 0.026994339232
+}
+RunLength
+{
+  set: 100.0
+}

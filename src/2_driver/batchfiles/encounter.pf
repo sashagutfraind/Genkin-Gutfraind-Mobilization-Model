@@ -1,0 +1,34 @@
+runs: 1
+magneticEncounterRate
+{
+	set_list: 0 0.01 0.03 0.1 0.3 1.0
+	{
+        runs: 1
+		RngSeed {
+			set_list: 11 12 13 14 15 16 17 18 19 20
+		}
+	}
+}
+numMagnetsN
+{
+    set: 100
+}
+population {
+   set: 21382
+}
+avgPressurability {
+    set: 0.33
+}
+runLength {
+   set: 1000
+}
+numVarAttributes {
+	set: 3
+}				
+numFixedAttributes {
+	set: 3
+}
+outputDirectory {
+    set_string: outdir/encounter
+}
+

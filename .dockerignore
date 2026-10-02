@@ -1,0 +1,8 @@
+raw
+private
+bad
+.venv
+.git
+.claude
+**/.DS_Store
+**/__pycache__

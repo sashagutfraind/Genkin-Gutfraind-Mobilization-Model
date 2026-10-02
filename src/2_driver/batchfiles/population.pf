@@ -1,0 +1,39 @@
+runs: 1
+population
+{
+	set_list: 100 200 500 1000 2000 5000 10000 20000 50000
+	{
+        runs: 1
+		RngSeed {
+			set_list: 11 12 13 14 15 16 17 18 19 20
+		}
+	}
+}
+numMagnetsN {
+   set: 100
+}
+simName {
+	set_string: diversityMatters
+}
+avgPressurability {
+    set: 0.33
+}
+runLength {
+   set: 1000
+}
+fractionExposedToMagnets {
+   set: 0.03
+}
+magneticEncounterRate {
+    set: 0.10
+}
+numFixedAttributes {
+	set: 3
+}				
+numVarAttributes {
+	set: 3
+}				
+outputDirectory {
+    set_string: outdir/population
+}
+

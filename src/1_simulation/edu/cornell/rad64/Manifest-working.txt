@@ -1,0 +1,5 @@
+Main-Class: edu.cornell.hopfieldZeal.NewModel
+Class-Path: .
+Manifest-Version: 1.0
+
+

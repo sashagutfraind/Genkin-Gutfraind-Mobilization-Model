@@ -1,0 +1,15 @@
+[project]
+name = "mobilization-model"
+version = "3.24.3"
+description = "Driver and analysis scripts for the Genkin-Gutfraind agent-based model of radicalization (Python 3 port)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.26",
+    "scipy>=1.11",
+    "matplotlib>=3.8",
+    "networkx>=3.2",
+]
+
+[tool.uv]
+package = false

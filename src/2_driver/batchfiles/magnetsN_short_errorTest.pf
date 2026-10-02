@@ -1,0 +1,49 @@
+runs: 1
+numMagnetsN
+{
+	set_list: 0 100 200 300
+	{
+        runs: 1
+		RngSeed {
+			set_list: 11 12 13 14 15
+		}
+	}
+}
+numMagnetsP
+{
+	set_list: 0 100 200 300
+	{
+        runs: 1
+		RngSeed {
+			set_list: 11 12 13 14 15
+		}
+	}
+}
+simName {
+	set_string: DoNeutralMagnetsMatter
+}
+population {
+   set: 400
+}
+avgPressurability {
+    set: 0.33
+}
+runLength {
+   set: 1000
+}
+fractionExposedToMagnets {
+   set: 0.03
+}
+magneticEncounterRate {
+    set: 0.10
+}
+numVarAttributes {
+	set: 3
+}				
+numFixedAttributes {
+	set: 3
+}
+outputDirectory {
+    set_string: outdir/dummy123
+}
+
